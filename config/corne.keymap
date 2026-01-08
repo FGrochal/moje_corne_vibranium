@@ -3,48 +3,120 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-    /* * SEKCJA BEHAVIORS (ZACHOWANIA)
-     * Tutaj definiujemy magiczne funkcje, ktorych ZMK nie ma w standardzie.
-     */
+    /* SEKCJA BEHAVIORS (ZACHOWANIA) - TUTAJ DEFINIUJEMY DWUKLIKI */
     behaviors {
-        // ZMIANA: flavor = "balanced" (reaguje szybciej na przytrzymanie)
-        hl: hold_letter {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_LETTER";
-            #binding-cells = <2>;
-            flavor = "balanced";    // Kluczowa zmiana!
-            tapping-term-ms = <175>; // Nieco krotszy czas reakcji
-            quick-tap-ms = <150>; 
-            bindings = <&kp>, <&kp>;
-        };
-        // (Reszta bez zmian)
-        hm: home_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOME_MODS";
-            #binding-cells = <2>;
-            flavor = "balanced";
+        // Para X / H -> 1 klik: H, 2 kliki: X
+        td_xh: tap_dance_xh {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_XH";
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp H>, <&kp X>;
+        };
+
+        // Para Q / W -> 1 klik: W, 2 kliki: Q
+        td_qw: tap_dance_qw {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_QW";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp W>, <&kp Q>;
+        };
+
+        // Para V / M -> 1 klik: M, 2 kliki: V
+        td_vm: tap_dance_vm {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_VM";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp M>, <&kp V>;
+        };
+
+        // Para @ / # -> 1 klik: #, 2 kliki: @
+        td_at_hash: tap_dance_at_hash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_AT_HASH";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp HASH>, <&kp AT>;
+        };
+
+        // Para / / : -> 1 klik: :, 2 kliki: /
+        td_sl_col: tap_dance_sl_col {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SL_COL";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp COLON>, <&kp SLASH>;
+        };
+
+        // Para * / dzielenie -> 1 klik: dzielenie, 2 kliki: *
+        td_st_div: tap_dance_st_div {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ST_DIV";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp KP_DIVIDE>, <&kp STAR>;
+        };
+
+        // Para ! / " -> 1 klik: ", 2 kliki: !
+        td_ex_dqt: tap_dance_ex_dqt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_EX_DQT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DQT>, <&kp EXCL>;
+        };
+
+        // Para P / ' -> 1 klik: ', 2 kliki: P
+        // UWAGA: Jesli wolisz P jako glowne, zamien kolejnosc w bindings ponizej!
+        td_p_sqt: tap_dance_p_sqt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_P_SQT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SQT>, <&kp P>;
+        };
+
+        // Para ; / , -> 1 klik: , 2 kliki: ;
+        td_sc_cm: tap_dance_sc_cm {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SC_CM";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+        };
+
+        // Para + / - -> 1 klik: -, 2 kliki: +
+        td_pl_mn: tap_dance_pl_mn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PL_MN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp MINUS>, <&kp PLUS>;
+        };
+
+        // Para % / $ -> 1 klik: $, 2 kliki: %
+        td_pr_dl: tap_dance_pr_dl {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PR_DL";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DLLR>, <&kp PRCNT>;
         };
     };
+
     keymap {
         compatible = "zmk,keymap";
 
-        /*
-         * TWOJA MAPA (Hands Down Vibranium)
-         * Uzywamy teraz &hl (hold letter) zamiast &mt dla par liter.
-         * Skladnia: &hl PRZYTRZYMANIE KLIKNIECIE
-         */
         default_layer {
             bindings = <
-// Rzad gorny: TAB | X/H | Q/W | V/M | G | J || ...
-&kp TAB    &hl X H      &hl Q W      &hl V M      &kp G        &kp J        &hl AT HASH     &hl SLASH COLON &hl STAR KP_DIVIDE &hl EXCL DQT   &hl P SQT  &kp BSLH
-// Rzad srodkowy (Home Row):
-&kp LCTRL  &kp S        &kp C        &kp N        &kp T        &kp K        &hl SEMI COMMA  &kp A           &kp E              &kp I          &kp Z      &hl PRCNT DLLR
+// Rzad gorny: TAB | H (2x X) | W (2x Q) | M (2x V) | G | J || ...
+&kp TAB    &td_xh       &td_qw       &td_vm       &kp G        &kp J        &td_at_hash     &td_sl_col      &td_st_div     &td_ex_dqt   &td_p_sqt  &kp BSLH
+// Rzad srodkowy:
+&kp LCTRL  &kp S        &kp C        &kp N        &kp T        &kp K        &td_sc_cm       &kp A           &kp E          &kp I        &kp Z      &td_pr_dl
 // Rzad dolny:
-&kp LSHFT  &kp B        &kp P        &kp L        &kp D        &kp H        &hl PLUS MINUS  &kp U           &kp O              &kp Y          &kp F      &kp ESC
-// Kciuki:
+&kp LSHFT  &kp B        &kp P        &kp L        &kp D        &kp H        &td_pl_mn       &kp U           &kp O          &kp Y        &kp F      &kp ESC
                                      &kp DEL      &kp BSPC     &lt 1 R      &lt 2 SPACE     &kp RET         &kp RALT
             >;
         };
