@@ -60,7 +60,7 @@
         compatible = "zmk,combos";
 
         cur_to_line_start {
-            bindings = <&kp HOME>;
+            bindings = <&cur_bef_first_char_in_line>;
             key-positions = <19 20>;
             layers = <1>;
         };
@@ -112,6 +112,13 @@
             bindings = <&kp LS(HOME) &kp BACKSPACE>;
             label = "DEL_TO_START";
         };
+
+        cur_bef_first_char_in_line: cur_bef_first_char_in_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(RIGHT) &kp LS(LEFT)>;
+            label = "CUR_BEF_FIRST_CHAR_IN_LINE";
+        };
     };
 
     keymap {
@@ -135,7 +142,7 @@
         lower_layer {
             bindings = <
 &trans  &trans        &kp N7  &kp N8   &kp N9     &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
-&trans  &bt BT_SEL 0  &kp N4  &kp N5   &kp N6     &kp N0    &kp F18  &hl LS(LEFT) LEFT  &kp DOWN      &kp UP   &hl LC(RIGHT) RIGHT  &trans
+&trans  &bt BT_SEL 0  &kp N4  &kp N5   &kp N6     &kp N0    &kp F18  &hl LC(LEFT) LEFT  &td_down      &td_up   &hl LC(RIGHT) RIGHT  &trans
 &trans  &trans        &kp N1  &kp N2   &kp N3     &trans    &kp F19  &kp F20            &kp F21       &kp F22  &kp F23              &trans
                               &kp RET  &kp LCTRL  &trans    &trans   &kp LEFT_SHIFT     &kp LEFT_ALT
             >;
