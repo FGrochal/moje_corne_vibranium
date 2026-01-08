@@ -32,7 +32,13 @@
             bindings = <&kp>, <&kp>;
         };
     };
-
+    conditional_layers {
+            compatible = "zmk,conditional-layers";
+            tri_layer {
+                if-layers = <1 2>;
+                then-layer = <3>;
+            };
+    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -68,5 +74,17 @@
                              &kp DEL   &kp BSPC  &kp SPACE    &kp SPACE  &trans     &kp RALT
             >;
         };
+        adjust_layer {
+            bindings = <
+&bootloader  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+&bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &trans   &trans &trans    &trans &trans
+&trans       &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+                                    &trans       &trans       &trans         &trans   &trans   &trans
+            >;
+        };
+
     };
 };
+
+
+
