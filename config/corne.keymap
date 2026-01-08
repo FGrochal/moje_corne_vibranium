@@ -7,29 +7,27 @@
      * Tutaj definiujemy magiczne funkcje, ktorych ZMK nie ma w standardzie.
      */
     behaviors {
-        // "Literka pod literką" - np. trzymaj Q, kliknij W
+        // ZMIANA: flavor = "balanced" (reaguje szybciej na przytrzymanie)
         hl: hold_letter {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_LETTER";
             #binding-cells = <2>;
-            flavor = "tap-preferred"; // Preferuj klikniecie (zeby nie wpisywac liter przy szybkim pisaniu)
-            tapping-term-ms = <200>;  // Czas w ms: jak dlugo trzeba trzymac, zeby weszla druga litera
-            quick-tap-ms = <150>;     // Pozwala szybko wpisac te sama litere 2 razy
+            flavor = "balanced";    // Kluczowa zmiana!
+            tapping-term-ms = <175>; // Nieco krotszy czas reakcji
+            quick-tap-ms = <150>; 
             bindings = <&kp>, <&kp>;
         };
-
-        // "Modyfikatory na rzedzie domowym" - np. trzymaj A zeby miec Shift
+        // (Reszta bez zmian)
         hm: home_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_MODS";
             #binding-cells = <2>;
-            flavor = "balanced";      // Balans miedzy kliknieciem a trzymaniem
+            flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
     };
-
     keymap {
         compatible = "zmk,keymap";
 
