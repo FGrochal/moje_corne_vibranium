@@ -4,8 +4,10 @@
 
 / {
     /* * SEKCJA BEHAVIORS (ZACHOWANIA) */
+
     behaviors {
         /* HOLD_LETTER: flavor = "balanced" (reaguje szybciej na przytrzymanie) */
+
         hl: hold_letter {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_LETTER";
@@ -27,11 +29,12 @@
         };
 
         /* NAPRAWA: Dodano czas (tapping-term) niezbędny do działania */
+
         td_down: td_down {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>; 
+            tapping-term-ms = <200>;
             bindings = <&kp DOWN>, <&nowa_linijka_ponizej>;
         };
 
@@ -83,6 +86,7 @@
 
     macros {
         /* Dodano wait-ms dla stabilności makr */
+
         nowa_linijka_ponizej: nowa_linijka_ponizej {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -127,39 +131,43 @@
         compatible = "zmk,keymap";
 
         /* LAYER 0: DEFAULT */
+
         default_layer {
             bindings = <
-&kp LEFT_ALT           &hl X H  &hl Q W  &hl V M       &kp G        &kp J         &hl HASH DOLLAR  &hl COLON PERIOD  &hl STAR KP_DIVIDE  &hl EXCL DQT  &hl CARET SQT  &mt PIPE BACKSLASH
-&hl RET TAB            &kp S    &kp C    &kp D         &kp T        &kp K         &hl SEMI COMMA   &kp A             &kp E               &kp I         &kp Z          &kp LSHIFT
-&hl PAGE_UP PAGE_DOWN  &kp B    &kp P    &kp L         &hl N UNDER  &hl AMPS H    &hl PLUS MINUS   &kp U             &kp O               &kp Y         &kp F          &kp ESC
+&kp LEFT_ALT           &hl X H  &hl Q W  &hl V M       &kp G        &kp J         &hl HASH DOLLAR  &hl COLON PERIOD  &hl STAR KP_DIVIDE  &hl EXCL DQT    &hl CARET SQT  &mt PIPE BACKSLASH
+&kp TAB                &kp S    &kp C    &kp D         &hl TAB T    &kp K         &hl SEMI COMMA   &hl RET A         &hl KP_EQUAL E      &hl QUESTION I  &kp Z          &kp RET
+&hl PAGE_UP PAGE_DOWN  &kp B    &kp P    &kp L         &hl UNDER N  &hl AMPS H    &hl PLUS MINUS   &kp U             &kp O               &kp Y           &kp F          &kp ESC
                                          &kp LEFT_GUI  &kp LCTRL    &lt 1 R       &lt 2 SPACE      &kp LEFT_SHIFT    &kp RALT
             >;
         };
 
         /* LAYER 1: LOWER */
         /* ZMIANA: Tutaj używamy td_down/up. 1 klik = strzałka, 2 kliki = makro */
+
         lower_layer {
             bindings = <
-&trans  &trans        &kp N7  &kp N8   &kp N9     &trans    &kp F13  &kp F14            &kp F15   &kp F16  &kp F17              &kp BSPC
-&trans  &bt BT_SEL 0  &kp N4  &kp N5   &kp N6     &kp N0    &kp F18  &hl LC(LEFT) LEFT  &td_down  &td_up   &hl LC(RIGHT) RIGHT  &trans
-&trans  &trans        &kp N1  &kp N2   &kp N3     &trans    &kp F19  &kp F20            &kp F21   &kp F22  &kp F23              &trans
+&trans  &trans        &kp N7  &kp N8   &kp N9     &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
+&trans  &bt BT_SEL 0  &kp N4  &kp N5   &kp N6     &kp N0    &kp F18  &hl LC(LEFT) LEFT  &td_down      &td_up   &hl LC(RIGHT) RIGHT  &trans
+&trans  &trans        &kp N1  &kp N2   &kp N3     &trans    &kp F19  &kp F20            &kp F21       &kp F22  &kp F23              &trans
                               &kp RET  &kp LCTRL  &trans    &trans   &kp LEFT_SHIFT     &kp LEFT_ALT
             >;
         };
 
         /* LAYER 2: RAISE */
+
         raise_layer {
             bindings = <
-&trans     &kp EXCL  &kp AT         &kp HASH          &kp DLLR          &kp PRCNT    &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
-&trans     &trans    &kp LESS_THAN  &kp GREATER_THAN  &trans            &trans       &kp MINUS  &kp EQUAL       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp BSLH         &kp GRAVE
-&kp LSHFT  &kp LWIN  &trans         &trans            &trans            &trans       &kp PLUS   &kp UNDER       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE         &kp TILDE
-                                    &kp RET           &kp LEFT_CONTROL  &trans       &trans     &kp LEFT_SHIFT  &kp RALT
+&trans     &kp EXCL  &kp AT         &kp HASH          &kp DLLR          &kp PRCNT       &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
+&trans     &trans    &kp LESS_THAN  &kp GREATER_THAN  &trans            &kp QUESTION    &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
+&kp LSHFT  &kp LWIN  &trans         &trans            &trans            &trans          &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
+                                    &kp RET           &kp LEFT_CONTROL  &trans          &trans     &kp LEFT_SHIFT  &kp RALT
             >;
         };
 
         /* LAYER 3: ADJUST */
         /* ZMIANA: Usunięto makra stąd, bo są teraz dostępne przez podwójne kliknięcie strzałek na warstwie 1 */
         /* Pozostawienie ich tutaj powoduje "ghost key" i zacinanie się strzałek */
+
         adjust_layer {
             bindings = <
 &bootloader  &trans        &trans        &trans        &trans        &trans          &trans  &trans                       &trans  &trans  &trans              &trans
