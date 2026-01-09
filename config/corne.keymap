@@ -12,6 +12,7 @@
          * Balanced przy szybkim pisaniu (rolling) potrafi zgubić sygnał "key-up",
          * co powoduje nieskończone powtarzanie znaku.
          */
+
         hl: hold_letter {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_LETTER";
@@ -34,6 +35,7 @@
         };
 
         /* Tap Dance dla strzałek */
+
         td_down: td_down {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DOWN";
@@ -126,7 +128,7 @@
         cur_bef_first_char_in_line: cur_bef_first_char_in_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(RIGHT) &kp LS(LEFT)>;
+            bindings = <&kp HOME &kp LC(RIGHT) &kp LS(LC(LEFT))>;
             label = "CUR_BEF_FIRST_CHAR_IN_LINE";
         };
     };
@@ -135,16 +137,18 @@
         compatible = "zmk,keymap";
 
         /* LAYER 0: DEFAULT */
+
         default_layer {
             bindings = <
-&kp LEFT_ALT           &hl X H  &hl Q W  &hl V M       &kp G             &kp J         &hl HASH DOLLAR  &hl COLON PERIOD  &hl STAR KP_DIVIDE  &hl EXCL DQT    &hl CARET SQT  &mt PIPE BACKSLASH
-&kp TAB                &kp S    &kp C    &kp D         &hl TAB T         &kp K         &hl SEMI COMMA   &hl RET A         &hl KP_EQUAL E      &hl QUESTION I  &kp Z          &kp RET
-&hl PAGE_UP PAGE_DOWN  &kp B    &kp P    &kp L         &hl UNDER N       &hl AMPS H    &hl PLUS MINUS   &kp U             &kp O               &kp Y           &kp F          &kp ESC
-                                         &kp LEFT_GUI  &kp LCTRL         &lt 1 R       &lt 2 SPACE      &kp LEFT_SHIFT    &kp RALT
+&kp LEFT_ALT           &hl X H  &hl Q W  &hl V M       &kp G        &kp J         &hl HASH DOLLAR  &hl COLON PERIOD  &hl STAR KP_DIVIDE  &hl EXCL DQT  &hl CARET SQT  &mt PIPE BACKSLASH
+&kp TAB                &kp S    &kp C    &kp D         &hl TAB T    &kp K         &hl SEMI COMMA   &hl RET A         &hl KP_EQUAL E      &kp I         &kp O          &kp RET
+&hl PAGE_UP PAGE_DOWN  &kp B    &kp P    &kp N         &hl UNDER L  &hl AMPS H    &hl PLUS MINUS   &kp U             &kp Y               &kp R         &kp F          &kp ESC
+                                         &kp LEFT_GUI  &kp LCTRL    &lt 1 Z       &lt 2 SPACE      &kp LEFT_SHIFT    &kp RALT
             >;
         };
 
         /* LAYER 1: LOWER */
+
         lower_layer {
             bindings = <
 &trans  &trans        &kp N7  &kp N8   &kp N9     &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
@@ -155,6 +159,7 @@
         };
 
         /* LAYER 2: RAISE */
+
         raise_layer {
             bindings = <
 &trans     &kp EXCL  &kp AT         &kp HASH          &kp DLLR          &kp PRCNT       &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
@@ -165,6 +170,7 @@
         };
 
         /* LAYER 3: ADJUST */
+
         adjust_layer {
             bindings = <
 &bootloader  &trans        &trans        &trans        &trans        &trans          &trans  &trans                       &trans  &trans  &trans              &trans
