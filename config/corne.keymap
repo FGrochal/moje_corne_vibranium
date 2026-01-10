@@ -7,35 +7,33 @@
 
     behaviors {
         /*
-         * NAPRAWA ZACINANIA SIĘ KLAWISZY:
-         * Zmiana flavor na "tap-preferred".
-         * Balanced przy szybkim pisaniu (rolling) potrafi zgubić sygnał "key-up",
-         * co powoduje nieskończone powtarzanie znaku.
+         * NAPRAWA PĘTLI:
+         * Usunięto 'quick-tap-ms'. To ten parametr powodował, że przy szybkim pisaniu
+         * (tap-tap-hold) klawisz blokował się w trybie powtarzania.
          */
-
         hl: hold_letter {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_LETTER";
             #binding-cells = <2>;
-            flavor = "tap-preferred";  // ZMIANA: Najstabilniejszy tryb
-            tapping-term-ms = <200>;   // ZMIANA: Lekko wydłużony czas (200ms to standard dla tap-preferred)
-            quick-tap-ms = <175>;      // Pozwala na szybkie powtórzenie klawisza
-            require-prior-idle-ms = <125>; // ZMIANA: Wymaga krótkiej przerwy w pisaniu, aby aktywować HOLD. Eliminuje przypadkowe 'Entery' w środku słowa.
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            /* quick-tap-ms = <175>;  <-- USUNIĘTO TO (Przyczyna problemów) */
+            require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
 
+        /* Home row mods - tu quick-tap może zostać, jeśli używasz ich do Shift/Ctrl */
         hm: home_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_MODS";
             #binding-cells = <2>;
-            flavor = "balanced";       // Tu możemy zostawić balanced lub zmienić na tap-preferred, jeśli modyfikatory też się tną
+            flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
 
         /* Tap Dance dla strzałek */
-
         td_down: td_down {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DOWN";
@@ -91,8 +89,6 @@
     };
 
     macros {
-        /* Makra z wait-ms dla stabilności */
-
         nowa_linijka_ponizej: nowa_linijka_ponizej {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -128,7 +124,7 @@
         cur_bef_first_char_in_line: cur_bef_first_char_in_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LC(RIGHT) &kp LS(LC(LEFT))>;
+            bindings = <&kp HOME &kp LS(RIGHT) &kp LS(LEFT)>;
             label = "CUR_BEF_FIRST_CHAR_IN_LINE";
         };
     };
@@ -137,18 +133,16 @@
         compatible = "zmk,keymap";
 
         /* LAYER 0: DEFAULT */
-
         default_layer {
             bindings = <
-&kp LEFT_ALT           &hl X H  &hl Q W  &hl V M       &kp G        &kp J         &hl HASH DOLLAR  &hl COLON PERIOD  &hl STAR KP_DIVIDE  &hl EXCL DQT  &hl CARET SQT  &mt PIPE BACKSLASH
-&kp TAB                &kp S    &kp C    &kp D         &hl TAB T    &kp K         &hl SEMI COMMA   &hl RET A         &hl KP_EQUAL E      &kp I         &kp O          &kp RET
-&hl PAGE_UP PAGE_DOWN  &kp B    &kp P    &kp N         &hl UNDER L  &hl AMPS H    &hl PLUS MINUS   &kp U             &kp Y               &kp R         &kp F          &kp ESC
-                                         &kp LEFT_GUI  &kp LCTRL    &lt 1 Z       &lt 2 SPACE      &kp LEFT_SHIFT    &kp RALT
+&kp LEFT_ALT           &hl X H  &hl Q W  &hl V M       &kp G             &kp J         &hl HASH DOLLAR  &hl COLON PERIOD  &hl KP_DIVIDE STAR  &hl EXCL DQT    &hl CARET SQT  &mt PIPE BACKSLASH
+&kp TAB                &kp S    &kp C    &kp D         &hl TAB T         &kp K         &hl SEMI COMMA   &hl RET A         &hl KP_EQUAL E      &hl QUESTION I  &kp Z          &kp RET
+&hl PAGE_UP PAGE_DOWN  &kp B    &kp P    &kp L         &hl UNDER N       &hl AMPS H    &hl MINUS PLUS   &kp U             &kp O               &kp Y           &kp F          &kp ESC
+                                         &kp LEFT_GUI  &kp LCTRL         &lt 1 R       &lt 2 SPACE      &kp LEFT_SHIFT    &kp RALT
             >;
         };
 
         /* LAYER 1: LOWER */
-
         lower_layer {
             bindings = <
 &trans  &trans        &kp N7  &kp N8   &kp N9     &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
@@ -159,7 +153,6 @@
         };
 
         /* LAYER 2: RAISE */
-
         raise_layer {
             bindings = <
 &trans     &kp EXCL  &kp AT         &kp HASH          &kp DLLR          &kp PRCNT       &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
@@ -170,7 +163,6 @@
         };
 
         /* LAYER 3: ADJUST */
-
         adjust_layer {
             bindings = <
 &bootloader  &trans        &trans        &trans        &trans        &trans          &trans  &trans                       &trans  &trans  &trans              &trans
