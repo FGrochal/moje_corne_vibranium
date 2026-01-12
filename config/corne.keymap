@@ -189,10 +189,10 @@
 
         default_layer {
             bindings = <
-&sk LEFT_ALT    &hl_l X H  &hl_l Q W  &hl_l V M     &kp R          &hl QUESTION J    &hl_r HASH DOLLAR  &hl_r COLON PERIOD  &hl_r STAR KP_DIVIDE  &hl_r EXCL DQT  &hl_r CARET SQT  &mt PIPE BACKSLASH
-&msc SCRL_UP    &kp Z      &kp S      &kp D         &hl_l TAB T    &hl_r PRCNT C     &hl_r SEMI COMMA   &hl_r RET A         &hl_r ESCAPE E        &kp I           &kp O            &hl_r LSHFT RET
-&msc SCRL_DOWN  &kp B      &kp P      &kp N         &hl_l UNDER L  &hl_r AMPS G      &hl_r MINUS PLUS   &kp U               &kp Y                 &kp K           &kp F            &kp ESC
-                                      &kp LEFT_GUI  &kp LCTRL      &lt 1 Z           &lt 2 SPACE        &kp LEFT_SHIFT      &sk RALT
+&sk LEFT_ALT    &kp Q  &kp W  &kp V         &kp R        &kp T      &kp Y        &kp U           &kp I           &kp O      &kp P          &mt PIPE BACKSLASH
+&msc SCRL_UP    &kp A  &kp S  &kp D         &hl_l F TAB  &kp G      &kp H        &hl_r RET J     &hl_r ESCAPE K  &kp L      &kp SEMICOLON  &kp RET
+&msc SCRL_DOWN  &kp Z  &kp X  &kp C         &kp V        &kp B      &kp N        &kp M           &kp M           &kp COMMA  &kp PERIOD     &kp SLASH
+                              &kp LEFT_GUI  &kp LCTRL    &lt 1 A    &lt 2 SPACE  &kp LEFT_SHIFT  &sk RALT
             >;
         };
 
