@@ -143,6 +143,13 @@
             tapping-term-ms = <200>;
             bindings = <&kp UP>, <&nowa_linijka_powyzej>;
         };
+
+        copy_paste: copy_paste {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COPY_PASTE";
+            #binding-cells = <0>;
+            bindings = <&kp LC(C)>, <&kp LC(V)>, <&kp LC(X)>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -182,10 +189,10 @@
 
         default_layer {
             bindings = <
-&kp LEFT_ALT    &kp X  &hl_l Q W  &hl_l V M     &kp G          &kp J            &hl_r HASH DOLLAR  &hl_r COLON PERIOD  &hl_r STAR KP_DIVIDE  &hl_r EXCL DQT  &hl_r CARET SQT  &mt PIPE BACKSLASH
-&msc SCRL_UP    &kp S  &kp C      &kp D         &hl_l TAB T    &hl_r PRCNT K    &hl_r SEMI COMMA   &hl_r RET A         &hl_r ESCAPE E        &kp I           &kp O            &hl_r LSHFT RET
-&msc SCRL_DOWN  &kp B  &kp P      &kp N         &hl_l UNDER L  &hl_r AMPS H     &hl_r MINUS PLUS   &kp U               &kp Y                 &kp R           &kp F            &kp ESC
-                                  &kp LEFT_GUI  &kp LCTRL      &lt 1 Z          &lt 2 SPACE        &kp LEFT_SHIFT      &kp RALT
+&sk LEFT_ALT    &hl_l X H  &hl_l Q W  &hl_l V M     &kp R          &hl QUESTION J    &hl_r HASH DOLLAR  &hl_r COLON PERIOD  &hl_r STAR KP_DIVIDE  &hl_r EXCL DQT  &hl_r CARET SQT  &mt PIPE BACKSLASH
+&msc SCRL_UP    &kp Z      &kp S      &kp D         &hl_l TAB T    &hl_r PRCNT C     &hl_r SEMI COMMA   &hl_r RET A         &hl_r ESCAPE E        &kp I           &kp O            &hl_r LSHFT RET
+&msc SCRL_DOWN  &kp B      &kp P      &kp N         &hl_l UNDER L  &hl_r AMPS G      &hl_r MINUS PLUS   &kp U               &kp Y                 &kp K           &kp F            &kp ESC
+                                      &kp LEFT_GUI  &kp LCTRL      &lt 1 Z           &lt 2 SPACE        &kp LEFT_SHIFT      &sk RALT
             >;
         };
 
@@ -193,7 +200,7 @@
 
         lower_layer {
             bindings = <
-&trans  &trans                       &trans                 &trans                 &trans                 &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
+&trans  &trans                       &trans                 &trans                 &copy_paste            &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
 &trans  &hl LC(BACKSPACE) BACKSPACE  &nowa_linijka_powyzej  &nowa_linijka_ponizej  &hl LC(DELETE) DELETE  &trans    &kp F18  &hl LC(LEFT) LEFT  &td_down      &td_up   &hl LC(RIGHT) RIGHT  &trans
 &trans  &trans                       &trans                 &trans                 &kill_line             &trans    &kp F19  &kp F20            &kp F21       &kp F22  &kp F23              &trans
                                                             &kp RET                &kp LCTRL              &trans    &trans   &kp LEFT_SHIFT     &kp LEFT_ALT
@@ -204,10 +211,10 @@
 
         raise_layer {
             bindings = <
-&bt BT_SEL 0  &trans  &kp N7  &kp N8    &kp N9            &trans    &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
-&trans        &trans  &kp N4  &kp N5    &kp N6            &kp N0    &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
-&trans        &trans  &kp N1  &kp N2    &kp N3            &trans    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
-                              &kp LGUI  &kp LEFT_CONTROL  &trans    &trans     &kp LEFT_SHIFT  &kp RALT
+&bt BT_SEL 0  &trans  &kp N7  &kp N8    &kp N9            &kp EXCL        &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
+&trans        &trans  &kp N4  &kp N5    &kp N6            &kp N0          &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
+&trans        &trans  &kp N1  &kp N2    &kp N3            &kp QUESTION    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
+                              &kp LGUI  &kp LEFT_CONTROL  &trans          &trans     &kp LEFT_SHIFT  &kp RALT
             >;
         };
 
@@ -215,10 +222,10 @@
 
         adjust_layer {
             bindings = <
-&bootloader  &trans        &trans        &trans        &trans        &trans          &trans  &trans                       &trans  &trans  &trans              &trans
-&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &hl LC(BACKSPACE) BACKSPACE  &trans  &trans  &hl LC(DELETE) DEL  &trans
-&trans       &trans        &trans        &trans        &trans        &trans          &trans  &trans                       &trans  &trans  &trans              &trans
-                                         &trans        &trans        &trans          &trans  &trans                       &trans
+&bootloader  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
+&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
+&trans       &trans        &trans        &trans        &trans        &trans          &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
+                                         &trans        &trans        &trans          &trans  &trans          &trans
             >;
         };
     };
