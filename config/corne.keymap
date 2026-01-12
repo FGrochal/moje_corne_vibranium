@@ -62,6 +62,27 @@
             bindings = <&kp END &kp LS(HOME) &kp BACKSPACE &kp BACKSPACE>;
             label = "KILL_LINE";
         };
+
+        finish_line_semicolon: finish_line_semicolon {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp END &kp SEMICOLON>;
+            label = "FINISH_LINE_SEMICOLON";
+        };
+
+        start_line_slash: start_line_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp SLASH>;
+            label = "START_LINE_SLASH";
+        };
+
+        go_to_parenthesis: go_to_parenthesis {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LC(F) &kp LEFT_PARENTHESIS>;
+            label = "GO_TO_PARENTHESIS";
+        };
     };
 
     /* ==============================================================================
@@ -179,6 +200,24 @@
             bindings = <&del_to_end>;
             key-positions = <15 16>;
             layers = <1>;
+        };
+
+        finish_semicolon {
+            bindings = <&finish_line_semicolon>;
+            key-positions = <22 23>;
+            layers = <0>;
+        };
+
+        start_slash {
+            bindings = <&start_line_slash>;
+            key-positions = <34 35>;
+            layers = <0>;
+        };
+
+        go_to_paren {
+            bindings = <&go_to_parenthesis>;
+            key-positions = <10 11>;
+            layers = <0>;
         };
     };
 
