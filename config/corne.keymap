@@ -173,13 +173,7 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <1 2>;   // Jeśli wciśnięto layer 1 i 2
-            then-layer = <3>;    // Włącz layer 3 (Adjust)
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 
     combos {
         compatible = "zmk,combos";
@@ -228,7 +222,47 @@
 
         ralt_kciuki {
             bindings = <&sk RALT>;
-            key-positions = <37 40>;
+            key-positions = <37 40 21>;
+        };
+
+        a_spolszczone {
+            bindings = <&kp RA(A)>;
+            key-positions = <39>;
+        };
+
+        s_pol {
+            bindings = <&kp RA(S)>;
+            key-positions = <38 13>;
+        };
+
+        o_pol {
+            bindings = <&kp RA(O)>;
+            key-positions = <19 39>;
+        };
+
+        c_pol {
+            bindings = <&kp RA(C)>;
+            key-positions = <14 38>;
+        };
+
+        l_pol {
+            bindings = <&kp RA(L)>;
+            key-positions = <38 28>;
+        };
+
+        e_pol {
+            bindings = <&kp RA(E)>;
+            key-positions = <39 20>;
+        };
+
+        z_pol {
+            bindings = <&kp RA(Z)>;
+            key-positions = <39 22>;
+        };
+
+        x_pol {
+            bindings = <&kp RA(X)>;
+            key-positions = <38 1>;
         };
     };
 
@@ -280,4 +314,3 @@
         };
     };
 };
-
