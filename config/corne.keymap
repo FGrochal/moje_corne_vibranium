@@ -261,6 +261,11 @@
             layers = <0>;
         };
 
+        n_pol {
+            bindings = <&kp RA(N)>;
+            key-positions = <38 27>;
+            layers = <0>;
+        };
         e_pol {
             bindings = <&kp RA(E)>;
             key-positions = <39 20>;
