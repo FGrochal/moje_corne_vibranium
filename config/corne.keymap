@@ -90,12 +90,7 @@
      * ============================================================================== */
 
     behaviors {
-        /* * HL_L (Dla lewej ręki)
-         * USUNIĘTO 'quick-tap-ms' CAŁKOWICIE.
-         * To oznacza: Brak możliwości powtarzania znaku przez przytrzymanie.
-         * Brak pętli. 100% stabilności.
-         */
-
+        /* HL_L (Dla lewej ręki) */
         hl_l: hold_letter_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HL_LEFT";
@@ -104,13 +99,11 @@
             tapping-term-ms = <200>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
-
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
         };
 
-        /* HL_R (Dla prawej ręki) - również bez quick-tap-ms */
-
+        /* HL_R (Dla prawej ręki) */
         hl_r: hold_letter_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HL_RIGHT";
@@ -119,13 +112,11 @@
             tapping-term-ms = <200>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
-
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
 
-        /* Ogólny HL (Dla nawigacji/symboli na warstwach) */
-
+        /* Ogólny HL */
         hl: hold_letter_general {
             compatible = "zmk,behavior-hold-tap";
             label = "HL_GENERAL";
@@ -136,8 +127,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        /* Home Mods - też czyścimy z quick-tap, żeby było spójnie */
-
+        /* Home Mods */
         hm: home_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOME_MODS";
@@ -147,8 +137,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        /* Tap Dance Strzałki (To zostaje, bo to inna funkcja) */
-
+        /* Tap Dance */
         td_down: td_down {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_DOWN";
@@ -175,10 +164,9 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-
         tri_layer {
-            if-layers = <1 2>;   // Jeśli wciśnięto layer 1 i 2
-            then-layer = <3>;    // Włącz layer 3 (Adjust)
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
@@ -232,9 +220,9 @@
             key-positions = <37 40>;
         };
 
-        a_spolszczone {
+        a_pol {
             bindings = <&kp RA(A)>;
-            key-positions = <39 21>;
+            key-positions = <39 19 20>;
             layers = <0>;
         };
 
@@ -244,8 +232,8 @@
             layers = <0>;
         };
 
-        o_pol {
-            bindings = <&kp RA(O)>;
+        a_pol {
+            bindings = <&kp RA(A)>;
             key-positions = <19 39>;
             layers = <0>;
         };
@@ -287,70 +275,58 @@
         };
 
         o_combo {
-            bindingsś = <&kp O>;
+            bindings = <&kp O>; /* Poprawiona literówka bindingsś -> bindings */
             key-positions = <19 20>;
             layers = <0>;
-            };
+        };
 
         n_combo {
             bindings = <&kp N>;
             key-positions = <15 16>;
             layers = <0>;
-            };
-
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        /* DEFAULT LAYER */
-
+        /* DEFAULT LAYER - Usunięto błąd duplikacji i ======= */
         default_layer {
             bindings = <
-
-&sk LEFT_ALT    &hl_l X H  &hl_l Q W  &hl_l V M     &hl_l LCTRL C         &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
-&msc SCRL_UP    &hl_l LEFT_SHIFT S    &kp R         &kp D               &hl_l TAB T    &kp K                   &kp SEMI        &hl_r RET A     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
-&msc SCRL_DOWN  &kp B      &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
-                                      &kp LEFT_GUI  &kp LCTRL           &lt 1 N    &lt 2 SPACE                 &kp LEFT_SHIFT  &sk RALT
-=======
-&sk LEFT_ALT    &hl_l X H           &hl_l Q W  &hl_l V M     &hl_l LCTRL C       &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
-&msc SCRL_UP    &hl_l LEFT_SHIFT S  &kp R      &kp D         &hl_l TAB T         &kp K          &kp SEMI                &hl_r RET O     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
-&msc SCRL_DOWN  &kp B               &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
-                                               &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 A                 &kp LEFT_SHIFT  &sk RALT
-
+&sk LEFT_ALT    &hl_l X H           &hl_l Q W  &hl_l V M      &hl_l LCTRL C       &kp J           &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA      &kp PERIOD  &kp ASTRK  &trans
+&msc SCRL_UP    &hl_l LEFT_SHIFT S  &kp R      &kp D          &hl_l TAB T         &kp K           &kp SEMI                &hl_r RET A     &hl_r ESCAPE E &kp I       &kp Z      &kp RET
+&msc SCRL_DOWN  &kp B               &kp P      &kp N          &hl_l UNDERSCORE L  &kp H           &kp SLASH               &kp U           &kp Y          &kp G       &kp F      &kp ESC
+                                               &kp LEFT_GUI   &kp LCTRL           &lt 1 SPACE     &lt 2 A                 &kp LEFT_SHIFT  &sk RALT
             >;
         };
 
         /* LOWER LAYER */
-
         lower_layer {
             bindings = <
-&trans  &trans                       &trans                 &trans                 &copy_paste            &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
+&trans  &trans                       &trans                 &trans                 &copy_paste        &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
 &trans  &hl LC(BACKSPACE) BACKSPACE  &nowa_linijka_powyzej  &nowa_linijka_ponizej  &hl LC(DELETE) DELETE  &trans    &kp F18  &hl LC(LEFT) LEFT  &kp DOWN      &kp UP   &hl LC(RIGHT) RIGHT  &trans
 &trans  &trans                       &trans                 &trans                 &kill_line             &trans    &kp F19  &kp F20            &kp F21       &kp F22  &kp F23              &trans
                                                             &kp RET                &kp LCTRL              &trans    &trans   &kp LEFT_SHIFT     &kp LEFT_ALT
             >;
         };
 
-        /* RAISE LAYER */
-
+        /* RAISE LAYER - Poprawione nazwy klawiszy NumPada */
         raise_layer {
             bindings = <
-&bt BT_SEL 0  &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8    &kp KP_NUMBER_9            &kp EXCL        &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
-&trans        &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6            &kp KP_NUMBER_0          &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
-&trans        &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2    &kp KP_NUMBER_3            &kp QUESTION    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
-                              &kp LGUI  &kp LEFT_CONTROL  &trans          &trans     &kp LEFT_SHIFT  &kp RALT
+&bt BT_SEL 0  &trans  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp EXCL      &kp CARET  &kp AMPS   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
+&trans        &trans  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_N0     &kp MINUS  &kp EQUAL  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
+&trans        &trans  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp QMARK     &kp PLUS   &kp UNDER  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
+                                 &kp LGUI   &kp LEFT_CONTROL  &trans &trans     &kp LEFT_SHIFT  &kp RALT
             >;
         };
 
-        /* ADJUST LAYER */
-
+        /* ADJUST LAYER - Poprawione &kp KP_NUMLOCK */
         adjust_layer {
             bindings = <
-&bootloader  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
-&KP_NUMLOCK  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
-&trans       &trans        &trans        &trans        &trans        &trans          &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
-                                         &trans        &trans        &trans          &trans  &trans          &trans
+&bootloader      &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
+&kp KP_NUMLOCK   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
+&trans           &trans        &trans        &trans        &trans        &trans          &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
+                                             &trans        &trans        &trans          &trans  &trans          &trans
             >;
         };
     };
