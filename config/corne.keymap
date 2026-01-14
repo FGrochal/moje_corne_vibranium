@@ -175,6 +175,7 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
             if-layers = <1 2>;   // Jeśli wciśnięto layer 1 i 2
             then-layer = <3>;    // Włącz layer 3 (Adjust)
@@ -251,7 +252,7 @@
 
         c_pol {
             bindings = <&kp RA(C)>;
-            key-positions = <14 38>;
+            key-positions = <38 4>;
             layers = <0>;
         };
 
@@ -266,6 +267,7 @@
             key-positions = <38 27>;
             layers = <0>;
         };
+
         e_pol {
             bindings = <&kp RA(E)>;
             key-positions = <39 20>;
@@ -292,10 +294,10 @@
 
         default_layer {
             bindings = <
-&sk LEFT_ALT    &hl_l X H  &hl_l Q W  &hl_l V M     &hl_l LCTRL C         &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
-&msc SCRL_UP    &hl_l LEFT_SHIFT S    &kp R         &kp D               &hl_l TAB T    &kp K                   &kp SEMI        &hl_r RET O     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
-&msc SCRL_DOWN  &kp B      &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
-                                      &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 A                 &kp LEFT_SHIFT  &sk RALT
+&sk LEFT_ALT    &hl_l X H           &hl_l Q W  &hl_l V M     &hl_l LCTRL C       &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
+&msc SCRL_UP    &hl_l LEFT_SHIFT S  &kp R      &kp D         &hl_l TAB T         &kp K          &kp SEMI                &hl_r RET O     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
+&msc SCRL_DOWN  &kp B               &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
+                                               &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 A                 &kp LEFT_SHIFT  &sk RALT
             >;
         };
 
@@ -333,4 +335,3 @@
         };
     };
 };
-
