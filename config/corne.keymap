@@ -285,6 +285,19 @@
             key-positions = <38 1>;
             layers = <0>;
         };
+
+        o_combo {
+            bindingsś = <&kp O>;
+            key-positions = <19 20>;
+            layers = <0>;
+            };
+
+        n_combo {
+            bindings = <&kp N>;
+            key-positions = <15 16>;
+            layers = <0>;
+            };
+
     };
 
     keymap {
@@ -294,10 +307,17 @@
 
         default_layer {
             bindings = <
+
+&sk LEFT_ALT    &hl_l X H  &hl_l Q W  &hl_l V M     &hl_l LCTRL C         &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
+&msc SCRL_UP    &hl_l LEFT_SHIFT S    &kp R         &kp D               &hl_l TAB T    &kp K                   &kp SEMI        &hl_r RET A     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
+&msc SCRL_DOWN  &kp B      &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
+                                      &kp LEFT_GUI  &kp LCTRL           &lt 1 N    &lt 2 SPACE                 &kp LEFT_SHIFT  &sk RALT
+=======
 &sk LEFT_ALT    &hl_l X H           &hl_l Q W  &hl_l V M     &hl_l LCTRL C       &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
 &msc SCRL_UP    &hl_l LEFT_SHIFT S  &kp R      &kp D         &hl_l TAB T         &kp K          &kp SEMI                &hl_r RET O     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
 &msc SCRL_DOWN  &kp B               &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
                                                &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 A                 &kp LEFT_SHIFT  &sk RALT
+
             >;
         };
 
@@ -316,9 +336,9 @@
 
         raise_layer {
             bindings = <
-&bt BT_SEL 0  &trans  &kp N7  &kp N8    &kp N9            &kp EXCL        &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
-&trans        &trans  &kp N4  &kp N5    &kp N6            &kp N0          &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
-&trans        &trans  &kp N1  &kp N2    &kp N3            &kp QUESTION    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
+&bt BT_SEL 0  &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_8    &kp KP_NUMBER_9            &kp EXCL        &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
+&trans        &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6            &kp KP_NUMBER_0          &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
+&trans        &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2    &kp KP_NUMBER_3            &kp QUESTION    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
                               &kp LGUI  &kp LEFT_CONTROL  &trans          &trans     &kp LEFT_SHIFT  &kp RALT
             >;
         };
@@ -328,7 +348,7 @@
         adjust_layer {
             bindings = <
 &bootloader  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
-&trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
+&KP_NUMLOCK  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
 &trans       &trans        &trans        &trans        &trans        &trans          &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
                                          &trans        &trans        &trans          &trans  &trans          &trans
             >;
