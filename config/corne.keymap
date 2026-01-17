@@ -220,7 +220,7 @@
         go_to_paren {
             bindings = <&go_to_parenthesis>;
             key-positions = <20 21>;
-            layers = <2>;
+            layers = <0>;
         };
 
         ralt_kciuki {
