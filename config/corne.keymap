@@ -80,7 +80,7 @@
         go_to_parenthesis: go_to_parenthesis {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LC(F) &kp LEFT_PARENTHESIS>;
+            bindings = <&kp ESC>;
             label = "GO_TO_PARENTHESIS";
         };
     };
@@ -305,7 +305,7 @@
 &sk LEFT_ALT    &hl_l X H           &hl_l Q W  &hl_l V M     &hl_l LCTRL C       &kp J          &hl_r BACKSLASH DOLLAR  &kp SQT         &kp COMMA       &kp PERIOD  &kp ASTRK  &trans
 &msc SCRL_UP    &hl_l LEFT_SHIFT S  &kp R      &kp D         &hl_l TAB T         &kp K          &kp SEMI                &hl_r RET A     &hl_r ESCAPE E  &kp I       &kp Z      &kp RET
 &msc SCRL_DOWN  &kp B               &kp P      &kp N         &hl_l UNDERSCORE L  &kp H          &kp SLASH               &kp U           &kp Y           &kp G       &kp F      &kp ESC
-                                               &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 A                 &kp LEFT_SHIFT  &sk RALT
+                                               &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 SPACE             &kp LEFT_SHIFT  &sk RALT
             >;
         };
 
