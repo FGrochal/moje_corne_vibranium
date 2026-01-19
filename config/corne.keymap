@@ -62,14 +62,7 @@
             bindings = <&kp END &kp LS(HOME) &kp BACKSPACE &kp BACKSPACE>;
             label = "KILL_LINE";
         };
-
-        o: o {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <20>;
-            bindings = <&kp O>;
-            label = "PARENS";
-    };
+};
 
     /* ==============================================================================
      * SEKCJA BEHAVIORS (ZACHOWANIA)
@@ -90,14 +83,6 @@
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
         };
-        msc: mouse_scroll {
-            compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <1>;
-            x-input-code = <INPUT_REL_HWHEEL>;
-            y-input-code = <INPUT_REL_WHEEL>;
-            time-to-max-speed-ms = <300>;
-            acceleration-exponent = <0>;
-        };    
 
     /* HL_R (Dla prawej ręki) */
         hl_r: hold_letter_right {
@@ -196,12 +181,6 @@
             bindings = <&del_to_end>;
             key-positions = <15 16>;
             layers = <1>;
-        };
-
-        o {
-            bindings = <&go_to_parenthesis>;
-            key-positions = <20 21>;
-            layers = <0>;
         };
 
         ralt_kciuki {
