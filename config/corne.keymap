@@ -62,6 +62,13 @@
             bindings = <&kp END &kp LS(HOME) &kp BACKSPACE &kp BACKSPACE>;
             label = "KILL_LINE";
         };
+
+        o: o {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            bindings = <&kp O>;
+            label = "PARENS";
     };
 
     /* ==============================================================================
@@ -83,9 +90,16 @@
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
         };
+        msc: mouse_scroll {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            x-input-code = <INPUT_REL_HWHEEL>;
+            y-input-code = <INPUT_REL_WHEEL>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <0>;
+        };    
 
-        /* HL_R (Dla prawej ręki) */
-
+    /* HL_R (Dla prawej ręki) */
         hl_r: hold_letter_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HL_RIGHT";
@@ -184,7 +198,7 @@
             layers = <1>;
         };
 
-        go_to_paren {
+        o {
             bindings = <&go_to_parenthesis>;
             key-positions = <20 21>;
             layers = <0>;
@@ -302,7 +316,7 @@
 
         adjust_layer {
             bindings = <
-&bootloader     &kp F1        &kp KP_N7  &kp LS(KP_NUMBER_8)  &kp KP_NUMBER_9  &kp F5       &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
+&bootloader     &kp F1        &kp KP_N7  &kp KP_N8            &kp KP_N9  &kp F5       &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
 &kp KP_NUMLOCK  &bt BT_SEL 0  &kp KP_N4  &kp KP_N5            &kp KP_N6        &kp KP_N0    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
 &trans          &trans        &kp KP_N1  &kp KP_N2            &kp KP_N3        &trans       &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
                                          &trans               &trans           &trans       &trans  &trans          &trans
