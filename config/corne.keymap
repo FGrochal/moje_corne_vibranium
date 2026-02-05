@@ -62,7 +62,7 @@
             bindings = <&kp END &kp LS(HOME) &kp BACKSPACE &kp BACKSPACE>;
             label = "KILL_LINE";
         };
-};
+    };
 
     /* ==============================================================================
      * SEKCJA BEHAVIORS (ZACHOWANIA)
@@ -84,7 +84,8 @@
             hold-trigger-on-release;
         };
 
-    /* HL_R (Dla prawej ręki) */
+        /* HL_R (Dla prawej ręki) */
+
         hl_r: hold_letter_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HL_RIGHT";
@@ -190,55 +191,55 @@
 
         o_pol {
             bindings = <&kp RA(O)>;
-            key-positions = <39 21>;
+            key-positions = <39 9>;
             layers = <0>;
         };
 
         s_pol {
             bindings = <&kp RA(S)>;
-            key-positions = <38 13>;
+            key-positions = <38 14>;
             layers = <0>;
         };
 
         a_pol {
             bindings = <&kp RA(A)>;
-            key-positions = <19 39>;
+            key-positions = <39 13>;
             layers = <0>;
         };
 
         c_pol {
             bindings = <&kp RA(C)>;
-            key-positions = <38 4>;
+            key-positions = <38 27>;
             layers = <0>;
         };
 
         l_pol {
             bindings = <&kp RA(L)>;
-            key-positions = <38 28>;
+            key-positions = <38 21>;
             layers = <0>;
         };
 
         n_pol {
             bindings = <&kp RA(N)>;
-            key-positions = <38 27>;
+            key-positions = <38 30>;
             layers = <0>;
         };
 
         e_pol {
             bindings = <&kp RA(E)>;
-            key-positions = <39 20>;
+            key-positions = <39 3>;
             layers = <0>;
         };
 
         z_pol {
             bindings = <&kp RA(Z)>;
-            key-positions = <39 22>;
+            key-positions = <39 25>;
             layers = <0>;
         };
 
         x_pol {
             bindings = <&kp RA(X)>;
-            key-positions = <38 1>;
+            key-positions = <38 26>;
             layers = <0>;
         };
 
@@ -262,10 +263,10 @@
 
         default_layer {
             bindings = <
-&sk LEFT_ALT    &hl_l X H  &hl_l Q W                &hl_l V M           &kp G                   &kp J                      &hl_r BACKSLASH DOLLAR  &kp SQT     &kp COMMA       &kp PERIOD     &kp ASTRK  &trans
-&trans    &kp R      &hl_l LEFT_SHIFT S       &kp D               &hl_l TAB T             &kp K                      &kp SEMI        &hl_r RET A     &hl_r ESCAPE E  &kp I          &kp Z      &kp RET
-&trans  &kp B      &kp P                    &kp N               &hl_l UNDERSCORE L      &kp H                      &kp SLASH       &kp U           &kp Y           &hl_r LCTRL C  &kp F      &kp ESC
-                                               &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 SPACE             &kp LEFT_SHIFT  &sk RALT
+&sk LEFT_ALT  &kp Q  &kp W               &kp E         &kp R               &kp T          &kp Y        &kp U           &kp I           &kp O               &kp P      &trans
+&trans        &kp A  &hl_l LEFT_SHIFT S  &kp D         &hl_l TAB F         &kp G          &kp H        &hl_r RET J     &hl_r ESCAPE K  &kp L               &kp SEMI   &kp RET
+&trans        &kp Z  &kp X               &kp C         &hl_l UNDERSCORE V  &kp B          &kp N        &kp M           &kp COMMA       &hl_r LCTRL PERIOD  &kp SLASH  &kp ESC
+                                         &kp LEFT_GUI  &kp LCTRL           &lt 1 SPACE    &lt 2 SPACE  &kp LEFT_SHIFT  &sk RALT
             >;
         };
 
@@ -273,10 +274,10 @@
 
         lower_layer {
             bindings = <
-&trans  &trans                       &trans                 &trans                 &copy_paste            &trans    &kp F13  &kp F14            &kp F15       &kp F16  &kp F17              &kp BSPC
-&trans  &hl LC(BACKSPACE) BACKSPACE  &nowa_linijka_powyzej  &nowa_linijka_ponizej  &hl LC(DELETE) DELETE  &trans    &kp F18  &hl LC(LEFT) LEFT  &kp DOWN      &kp UP   &hl LC(RIGHT) RIGHT  &trans
-&trans  &trans                       &trans                 &trans                 &kill_line             &trans    &kp F19  &kp F20            &kp F21       &kp F22  &kp F23              &trans
-                                                            &kp RET                &kp LCTRL              &trans    &trans   &kp LEFT_SHIFT     &kp LEFT_ALT
+&trans  &trans                       &trans                 &trans                 &copy_paste            &trans         &kp F13    &kp F14            &kp F15       &kp F16               &kp F17                &kp BSPC
+&trans  &hl LC(BACKSPACE) BACKSPACE  &nowa_linijka_powyzej  &nowa_linijka_ponizej  &hl LC(DELETE) DELETE  &trans         &kp F18    &hl LC(LEFT) LEFT  &kp DOWN      &kp UP                &hl LC(RIGHT) RIGHT    &trans
+&trans  &kp EXCL                     &kp AT_SIGN            &kp HASH               &kp DOLLAR             &kp PERCENT    &kp CARET  &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+                                                            &kp RET                &kp LCTRL              &trans         &trans     &kp LEFT_SHIFT     &kp LEFT_ALT
             >;
         };
 
@@ -295,10 +296,10 @@
 
         adjust_layer {
             bindings = <
-&bootloader     &kp F1        &kp KP_N7  &kp KP_N8            &kp KP_N9  &kp F5       &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
-&kp KP_NUMLOCK  &bt BT_SEL 0  &kp KP_N4  &kp KP_N5            &kp KP_N6        &kp KP_N0    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
-&trans          &trans        &kp KP_N1  &kp KP_N2            &kp KP_N3        &trans       &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
-                                         &trans               &trans           &trans       &trans  &trans          &trans
+&bootloader     &kp F1        &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp F5       &kp F6  &kp F7          &kp F8          &kp F9        &kp F10          &kp F11
+&kp KP_NUMLOCK  &bt BT_SEL 0  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_N0    &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
+&trans          &trans        &kp KP_N1  &kp KP_N2  &kp KP_N3  &trans       &trans  &mkp LCLK       &mkp LCLK       &trans        &trans           &trans
+                                         &trans     &trans     &trans       &trans  &trans          &trans
             >;
         };
     };
