@@ -51,7 +51,7 @@
         cur_bef_first_char_in_line: cur_bef_first_char_in_line {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LC(RIGHT) &kp LC(LEFT)>;
+            bindings = <&kp HOME>;
             label = "CUR_START";
         };
 
@@ -208,7 +208,7 @@
 
         o_pol {
             bindings = <&kp RA(O)>;
-            key-positions = <39 21>;
+            key-positions = <39 8>;
             layers = <0>;
         };
 
@@ -256,20 +256,13 @@
 
         x_pol {
             bindings = <&kp RA(X)>;
-            key-positions = <39 30>;
+            key-positions = <39 7>;
             layers = <0>;
         };
 
-        o_combo {
-            bindings = <&kp O>; /* Poprawiona literówka bindingsś -> bindings */
-            key-positions = <19 20>;
-            layers = <0>;
-        };
-
-        n_combo {
-            bindings = <&kp N>;
-            key-positions = <15 16>;
-            layers = <0>;
+        v_pol {
+            bindings = <&kp RA(Z)>;
+            key-positions = <10 39>;
         };
     };
 
@@ -280,9 +273,9 @@
 
         default_layer {
             bindings = <
-&sk LEFT_ALT  &kp Q  &kp W  &kp M         &kp G      &kp J          &kp DOLLAR        &colon_dots     &kp SQT   &kp MINUS  &kp BACKSLASH  &trans
-&trans        &kp S  &kp C  &kp D         &kp T      &kp K          &semicolon_comma  &kp A           &kp E     &kp I      &kp Z          &kp RET
-&trans        &kp B  &kp P  &kp N         &kp L      &kp H          &kp X             &kp U           &kp Y     &kp R      &kp F          &kp ESC
+&sk LEFT_ALT  &kp Q  &kp W  &kp M         &kp G      &kp J          &kp DOLLAR        &kp X           &kp O     &kp SQT  &kp V  &trans
+&trans        &kp S  &kp C  &kp D         &kp T      &kp K          &semicolon_comma  &kp A           &kp E     &kp I    &kp Z  &kp RET
+&trans        &kp B  &kp P  &kp N         &kp L      &kp H          &colon_dots       &kp U           &kp Y     &kp R    &kp F  &kp ESC
                             &kp LEFT_GUI  &kp LCTRL  &lt 1 SPACE    &lt 2 SPACE       &kp LEFT_SHIFT  &sk LALT
             >;
         };
@@ -291,9 +284,9 @@
 
         lower_layer {
             bindings = <
-&trans  &trans     &trans       &trans    &copy_paste  &trans         &trans     &trans          &kp BACKSPACE  &kp DEL               &trans                 &trans
-&trans  &sk LCTRL  &kp TAB      &kp ESC   &kp RET      &trans         &trans     &kp LEFT_ARROW  &kp DOWN       &kp UP                &kp RIGHT              &trans
-&trans  &sk LALT   &kp AT_SIGN  &kp HASH  &kp DOLLAR   &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &trans     &trans       &trans    &copy_paste  &trans         &trans     &trans          &kp BACKSPACE  &kp DEL        &trans            &trans
+&trans  &sk LCTRL  &kp TAB      &kp ESC   &kp RET      &trans         &trans     &kp LEFT_ARROW  &kp DOWN       &kp UP         &kp RIGHT         &trans
+&trans  &sk LALT   &kp AT_SIGN  &kp HASH  &kp DOLLAR   &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK   &kp LESS_THAN  &kp GREATER_THAN  &trans
                                 &trans    &trans       &trans         &trans     &trans          &trans
             >;
         };
@@ -302,10 +295,10 @@
 
         raise_layer {
             bindings = <
-&bt BT_SEL 0  &trans       &kp N7  &kp N8    &kp N9            &kp EXCL     &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
-&trans        &kp PERCENT  &kp N4  &kp N5    &kp N6            &kp N0       &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
-&trans        &kp HASH     &kp N1  &kp N2    &kp N3            &kp QMARK    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
-                                   &kp LGUI  &kp LEFT_CONTROL  &trans       &trans     &kp LEFT_SHIFT  &kp RALT
+&bt BT_SEL 0   &trans            &kp N7  &kp N8    &kp N9            &kp EXCL     &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
+&kp LESS_THAN  &kp GREATER_THAN  &kp N4  &kp N5    &kp N6            &kp N0       &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
+&trans         &kp HASH          &kp N1  &kp N2    &kp N3            &kp QMARK    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
+                                         &kp LGUI  &kp LEFT_CONTROL  &trans       &trans     &kp LEFT_SHIFT  &kp RALT
             >;
         };
 
