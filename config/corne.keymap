@@ -208,7 +208,7 @@
 
         o_pol {
             bindings = <&kp RA(O)>;
-            key-positions = <39 9>;
+            key-positions = <39 8>;
             layers = <0>;
         };
 
@@ -220,49 +220,49 @@
 
         a_pol {
             bindings = <&kp RA(A)>;
-            key-positions = <13 38>;
+            key-positions = <39 19>;
             layers = <0>;
         };
 
         c_pol {
             bindings = <&kp RA(C)>;
-            key-positions = <38 27>;
+            key-positions = <38 14>;
             layers = <0>;
         };
 
         l_pol {
             bindings = <&kp RA(L)>;
-            key-positions = <21 39>;
+            key-positions = <38 28>;
             layers = <0>;
         };
 
         n_pol {
             bindings = <&kp RA(N)>;
-            key-positions = <30 39>;
+            key-positions = <38 27>;
             layers = <0>;
         };
 
         e_pol {
             bindings = <&kp RA(E)>;
-            key-positions = <38 3>;
+            key-positions = <39 20>;
             layers = <0>;
         };
 
         z_pol {
             bindings = <&kp RA(Z)>;
-            key-positions = <25 38>;
+            key-positions = <39 22>;
             layers = <0>;
         };
 
         x_pol {
             bindings = <&kp RA(X)>;
-            key-positions = <26 38>;
+            key-positions = <39 7>;
             layers = <0>;
         };
 
         v_pol {
             bindings = <&kp RA(Z)>;
-            key-positions = <28>;
+            key-positions = <10 39>;
         };
     };
 
@@ -273,10 +273,10 @@
 
         default_layer {
             bindings = <
-&sk TAB         &kp Q  &kp W  &kp E         &kp R      &kp T          &kp Y        &kp U     &kp I      &kp O       &kp P          &kp BACKSLASH
-&kp LCTRL       &kp A  &kp S  &kp D         &kp F      &kp G          &kp H        &kp J     &kp K      &kp L       &kp SEMICOLON  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V      &kp B          &kp N        &kp M     &kp COMMA  &kp PERIOD  &kp SLASH      &kp ESC
-                              &kp LEFT_GUI  &kp LCTRL  &lt 1 SPACE    &lt 2 SPACE  &kp LALT  &sk ENTER
+&kp TAB  &kp Q  &kp W  &kp M         &kp G      &kp J          &kp DOLLAR        &kp X           &kp O     &kp V  &kp SQT  &kp SLASH
+&kp LCTRL       &kp S  &kp C  &kp D         &kp T      &kp K          &semicolon_comma  &kp A           &kp E     &kp I  &kp Z    &kp RET
+&kp LEFT_SHIFT        &kp B  &kp P  &kp N         &kp F      &kp H          &colon_dots       &kp U           &kp Y     &kp R  &kp L    &kp ESC
+                              &kp LEFT_GUI  &kp LCTRL  &lt 1 SPACE    &lt 2 SPACE       &kp LALT  &kp RET 
             >;
         };
 
@@ -295,10 +295,10 @@
 
         raise_layer {
             bindings = <
-&bt BT_SEL 0   &trans            &kp N7  &kp N8    &kp N9            &kp QUESTION       &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
-&kp LESS_THAN  &kp GREATER_THAN  &kp N4  &kp N5    &kp N6            &kp N0             &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PLUS         &kp GRAVE
-&trans         &kp HASH          &kp N1  &kp N2    &kp N3            &kp EXCLAMATION    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
-                                         &kp LGUI  &kp LEFT_CONTROL  &trans             &trans     &kp LEFT_SHIFT  &kp RALT
+&bt BT_SEL 0   &trans            &kp N7  &kp N8    &kp N9            &kp EXCL     &kp CARET  &kp AMPS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp KP_MULTIPLY  &kp BSPC
+&kp LESS_THAN  &kp GREATER_THAN  &kp N4  &kp N5    &kp N6            &kp N0       &kp MINUS  &kp EQUAL       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp BSLH         &kp GRAVE
+&trans         &kp HASH          &kp N1  &kp N2    &kp N3            &kp QMARK    &kp PLUS   &kp UNDER       &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE         &kp TILDE
+                                         &kp LGUI  &kp LEFT_CONTROL  &trans       &trans     &kp LEFT_SHIFT  &kp RALT
             >;
         };
 
