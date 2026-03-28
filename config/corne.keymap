@@ -285,7 +285,7 @@
         lower_layer {
             bindings = <
 &trans  &trans           &trans         &trans      &copy_paste  &trans         &trans     &trans          &kp BACKSPACE  &kp DEL        &trans            &trans
-&trans  &sk LCTRL        &kp BACKSPACE  &kp DELETE  &kp TAB      &kp SLASH      &trans     &kp LEFT_ARROW  &kp DOWN       &kp UP         &kp RIGHT         &trans
+&trans  &kp LCTRL        &kp BACKSPACE  &kp DELETE  &kp TAB      &kp SLASH      &trans     &kp LEFT_ARROW  &kp DOWN       &kp UP         &kp RIGHT         &trans
 &trans  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH    &kp DOLLAR   &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK   &kp LESS_THAN  &kp GREATER_THAN  &trans
                                         &trans      &trans       &trans         &trans     &trans          &trans
             >;
