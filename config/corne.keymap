@@ -273,10 +273,10 @@
 
         default_layer {
             bindings = <
-&kp TAB  &kp Q  &kp W  &kp M         &kp G      &kp J          &kp DOLLAR        &kp X           &kp O     &kp V  &kp SQT  &kp SLASH
-&kp LCTRL       &kp S  &kp C  &kp D         &kp T      &kp K          &semicolon_comma  &kp A           &kp E     &kp I  &kp Z    &kp RET
-&kp LEFT_SHIFT        &kp B  &kp P  &kp N         &kp F      &kp H          &colon_dots       &kp U           &kp Y     &kp R  &kp L    &kp ESC
-                              &kp LEFT_GUI  &kp LCTRL  &lt 1 SPACE    &lt 2 SPACE       &kp LALT  &kp RET 
+&kp TAB         &kp Q             &kp W        &kp M         &kp G      &kp J          &kp DOLLAR        &kp X     &kp O           &kp V  &kp BACKSPACE  &kp APOS
+&kp LCTRL       &hl LEFT_SHIFT S  &hl LCTRL C  &kp D         &kp T      &kp K          &semicolon_comma  &kp A     &kp E           &kp I  &kp Z          &kp RET
+&kp LEFT_SHIFT  &kp B             &kp P        &kp N         &kp F      &kp H          &colon_dots       &kp U     &kp Y           &kp R  &kp L          &kp ESC
+                                               &kp LEFT_GUI  &kp LCTRL  &lt 1 SPACE    &lt 2 SPACE       &kp LALT  &kp LEFT_SHIFT
             >;
         };
 
@@ -284,10 +284,10 @@
 
         lower_layer {
             bindings = <
-&trans  &trans     &trans       &trans    &copy_paste  &trans         &trans     &trans          &kp BACKSPACE  &kp DEL        &trans            &trans
-&trans  &sk LCTRL  &kp TAB      &kp ESC   &kp RET      &kp SLASH      &trans     &kp LEFT_ARROW  &kp DOWN       &kp UP         &kp RIGHT         &trans
-&trans  &sk LALT   &kp AT_SIGN  &kp HASH  &kp DOLLAR   &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK   &kp LESS_THAN  &kp GREATER_THAN  &trans
-                                &trans    &trans       &trans         &trans     &trans          &trans
+&trans  &trans           &trans         &trans      &copy_paste  &trans         &trans     &trans          &kp BACKSPACE  &kp DEL        &trans            &trans
+&trans  &sk LCTRL        &kp BACKSPACE  &kp DELETE  &kp TAB      &kp SLASH      &trans     &kp LEFT_ARROW  &kp DOWN       &kp UP         &kp RIGHT         &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH    &kp DOLLAR   &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp ASTERISK   &kp LESS_THAN  &kp GREATER_THAN  &trans
+                                        &trans      &trans       &trans         &trans     &trans          &trans
             >;
         };
 
