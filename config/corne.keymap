@@ -232,7 +232,7 @@
 
         l_pol {
             bindings = <&kp RA(L)>;
-            key-positions = <38 28>;
+            key-positions = <39 34>;
             layers = <0>;
         };
 
